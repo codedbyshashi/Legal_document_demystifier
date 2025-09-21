@@ -210,8 +210,9 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ document, language
       </div>
 
       {/* Quick Actions */}
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="mt-6 grid md:grid-cols-3 gap-4">
         <button className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 text-left">
+          onClick={() => setInputText("What should I check before signing this document?")}
           <h3 className="font-semibold text-gray-900 mb-2">📋 What Should I Check?</h3>
           <p className="text-sm text-gray-600">
             Get a simple checklist of things to verify before signing
@@ -219,6 +220,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ document, language
         </button>
         
         <button className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 text-left">
+          onClick={() => setInputText("What are my rights and protections under this agreement?")}
           <h3 className="font-semibold text-gray-900 mb-2">⚖️ What Are My Rights?</h3>
           <p className="text-sm text-gray-600">
             Learn what protections you have under the law
@@ -226,6 +228,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({ document, language
         </button>
         
         <button className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 text-left">
+          onClick={() => setInputText("Are these terms normal or unusual for this type of document?")}
           <h3 className="font-semibold text-gray-900 mb-2">🔍 Is This Normal?</h3>
           <p className="text-sm text-gray-600">
             Find out if these terms are typical or unusual

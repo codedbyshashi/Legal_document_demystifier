@@ -61,16 +61,24 @@ export const useDocumentStore = () => {
   const addToHistory = (document: Document) => {
     setDocumentHistory(prev => [document, ...prev.slice(0, 9)]); // Keep last 10
     
-    // Save to database
-    saveDocument({
-      name: document.name,
-      type: document.type,
-      size: document.size,
-      upload_date: document.uploadDate,
-      content: document.content,
-      analysis: document.analysis,
-      language: 'en' // Default language, can be updated based on user preference
-    }).catch(console.error);
+    // Save to database (optional, won't break if it fails)
+    try {
+      saveDocument({
+        name: document.name,
+        type: document.type,
+        size: document.size,
+        upload_date: document.uploadDate,
+        content: document.content,
+        analysis: document.analysis,
+        language: 'en' // Default language, can be updated based on user preference
+      }).catch(() => {
+        // Silently handle database errors to prevent app breaking
+        console.log('Document saved locally only - database connection unavailable');
+      });
+    } catch (error) {
+      // Silently handle any errors
+      console.log('Document saved locally only');
+    }
   };
 
   const selectFromHistory = (document: Document) => {
