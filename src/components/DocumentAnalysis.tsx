@@ -409,17 +409,23 @@ Checklist Created: ${new Date().toLocaleString()}
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center">
+        <button 
           onClick={handleDownloadReport}
+          className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
+        >
           <Download className="w-5 h-5 mr-2" />
           {isSimpleMode ? 'Save This Analysis' : 'Download Full Analysis Report'}
         </button>
-        <button className="px-6 py-3 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors duration-200">
+        <button 
           onClick={handleShareWithLegal}
+          className="px-6 py-3 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors duration-200"
+        >
           {isSimpleMode ? 'Send to a Lawyer' : 'Share with Legal Professional'}
         </button>
-        <button className="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200">
+        <button 
           onClick={handleGenerateChecklist}
+          className="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+        >
           {isSimpleMode ? 'What Should I Do Next?' : 'Generate Action Checklist'}
         </button>
       </div>
